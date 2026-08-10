@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Skye Reich — Portfolio</title>
+<meta name="description" content="Skye Reich is an interdisciplinary artist working at the intersection of ecology, materials, and public interaction. Portfolio of Atlas, Woman in a Burning World, and A Community Garden Without Community." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --color-paper:#F5F1E8; --color-paper-deep:#ECE6D8; --color-ink:#232321;
+  --color-moss:#5C6B58; --color-stone:#8E8A82; --color-amber:#C18A4A; --color-mineral:#6C8791;
+  --space-1:.25rem;--space-2:.5rem;--space-3:1rem;--space-4:1.5rem;--space-5:2.5rem;--space-6:4rem;--space-7:6rem;--space-8:9rem;
+  --radius-small:2px;--radius-medium:6px;--border-thin:1px;
+  --content-wide:90rem;--content-reading:68ch;
+  --motion-fast:180ms;--motion-standard:500ms;--motion-slow:900ms;
+  --font-display:"Fraunces",Georgia,serif;
+  --font-editorial:"Cormorant Garamond",Georgia,serif;
+  --font-interface:"IBM Plex Sans",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;background:var(--color-paper);color:var(--color-ink);font-family:var(--font-interface);font-size:1rem;line-height:1.65;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden;}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.035;mix-blend-mode:multiply;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+a{color:var(--color-moss);text-decoration:none;}
+a:hover{color:var(--color-amber);}
+:focus-visible{outline:2px solid var(--color-mineral);outline-offset:3px;}
+img{max-width:100%;display:block;}
+figure{margin:0;}
+.skip{position:absolute;left:-999px;top:0;background:var(--color-ink);color:var(--color-paper);padding:var(--space-2) var(--space-3);z-index:10000;}
+.skip:focus{left:var(--space-3);top:var(--space-3);}
+.meta{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--color-stone);}
+.meta--amber{color:var(--color-amber);}
+.meta--ink{color:var(--color-ink);}
+.wrap{width:100%;max-width:var(--content-wide);margin-inline:auto;padding-inline:clamp(var(--space-4),5vw,var(--space-7));}
+.reading{max-width:var(--content-reading);}
+
+/* ---------- NAV ---------- */
+.masthead{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--color-paper) 90%,transparent);backdrop-filter:saturate(120%) blur(8px);border-bottom:var(--border-thin) solid color-mix(in srgb,var(--color-stone) 40%,transparent);}
+.masthead__inner{display:flex;align-items:baseline;justify-content:space-between;gap:var(--space-4);padding-block:var(--space-3);}
+.brand{font-family:var(--font-display);font-weight:400;font-size:1.15rem;color:var(--color-ink);}
+.brand span{font-family:var(--font-mono);font-size:.6rem;letter-spacing:.18em;color:var(--color-stone);display:block;margin-top:2px;text-transform:uppercase;}
+.nav{display:flex;gap:clamp(var(--space-3),2.2vw,var(--space-5));flex-wrap:wrap;align-items:baseline;}
+.nav a{font-size:.82rem;letter-spacing:.04em;color:var(--color-ink);position:relative;padding-block:2px;}
+.nav a::after{content:"";position:absolute;left:0;bottom:-2px;height:1px;width:0;background:var(--color-moss);transition:width var(--motion-standard) ease;}
+.nav a:hover::after{width:100%;}
+.nav__toggle{display:none;}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:88vh;display:flex;align-items:flex-end;overflow:hidden;border-bottom:var(--border-thin) solid color-mix(in srgb,var(--color-stone) 35%,transparent);}
+.hero__bg{position:absolute;inset:0;z-index:0;}
+.hero__bg img{width:100%;height:100%;object-fit:cover;filter:grayscale(.15) contrast(1.02);}
+.hero__bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,color-mix(in srgb,var(--color-paper) 30%,transparent) 0%,transparent 30%,color-mix(in srgb,var(--color-paper) 88%,transparent) 100%);}
+.hero__growth{position:absolute;inset:0;z-index:1;width:100%;height:100%;}
+.hero__inner{position:relative;z-index:2;width:100%;padding-block:var(--space-6) var(--space-7);display:grid;grid-template-columns:1.2fr .8fr;gap:var(--space-5);align-items:end;}
+.hero__eyebrow{display:flex;gap:var(--space-3);flex-wrap:wrap;margin-bottom:var(--space-4);}
+.hero__title{font-family:var(--font-display);font-weight:300;font-size:clamp(3rem,9vw,7rem);line-height:.9;letter-spacing:-.02em;margin:0 0 var(--space-4);color:var(--color-ink);}
+.hero__statement{font-family:var(--font-editorial);font-size:clamp(1.3rem,2.2vw,1.7rem);line-height:1.4;margin:0;max-width:40ch;color:var(--color-ink);}
+.hero__index{border-top:var(--border-thin) solid var(--color-ink);}
+.hero__index h2{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--color-stone);font-weight:400;margin:var(--space-3) 0 var(--space-2);}
+.idxlist{list-style:none;margin:0;padding:0;}
+.idxlist li{border-bottom:var(--border-thin) solid color-mix(in srgb,var(--color-stone) 40%,transparent);}
+.idxlist a{display:grid;grid-template-columns:auto 1fr auto;gap:var(--space-3);align-items:baseline;padding-block:var(--space-3);color:var(--color-ink);transition:padding-left var(--motion-standard) ease,color var(--motion-fast) ease;}
+.idxlist a:hover{padding-left:var(--space-2);color:var(--color-moss);}
+.idxlist .n{font-family:var(--font-mono);font-size:.72rem;color:var(--color-amber);}
+.idxlist .l{font-family:var(--font-display);font-size:1.25rem;}
+.idxlist .a{font-family:var(--font-mono);color:var(--color-stone);transition:transform var(--motion-standard) ease;}
+.idxlist a:hover .a{transform:translateX(4px);}
+
+/* ---------- SECTION SCAFFOLD ---------- */
+.section{padding-block:var(--space-8);}
+.section--tight{padding-block:var(--space-7);}
+.band{border-top:var(--border-thin) solid color-mix(in srgb,var(--color-stone) 40%,transparent);}
+.band--deep{background:var(--color-paper-deep);}
+.mark{display:flex;align-items:baseline;gap:var(--space-3);margin-bottom:var(--space-5);}
+.mark::after{content:"";flex:1;height:1px;background:color-mix(in srgb,var(--color-stone) 45%,transparent);}
+.h-section{font-family:var(--font-display);font-weight:400;font-size:clamp(2rem,5vw,3.4rem);line-height:1;letter-spacing:-.01em;margin:0;}
+.lead{font-family:var(--font-editorial);font-size:clamp(1.35rem,2.4vw,1.75rem);line-height:1.45;margin:0 0 var(--space-4);}
+.prose p{margin:0 0 var(--space-4);}
+.prose p:last-child{margin-bottom:0;}
+.sub{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--color-moss);margin:0 0 var(--space-3);}
+
+/* ---------- ABOUT ---------- */
+.about{display:grid;grid-template-columns:.85fr 1.15fr;gap:var(--space-6);align-items:start;}
+.about__portrait{border:var(--border-thin) solid color-mix(in srgb,var(--color-stone) 45%,transparent);}
+.about__portrait img{width:100%;height:auto;filter:grayscale(.1);}
+.about__cap{margin-top:var(--space-2);}
+.about__body .lead{margin-bottom:var(--space-5);}
+.credgrid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5) var(--space-4);margin-top:var(--space-5);border-top:var(--border-thin) solid color-mix(in srgb,var(--color-stone) 40%,transparent);padding-top:var(--space-4);}
+.cred h3{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--color-stone);font-weight:400;margin:0 0 var(--space-2);}
+.cred p{margin:0 0 var(--space-3);font-size:.92rem;}
+.cred b{font-family:var(--font-display);font-weight:500;font-size:1.05rem;color:var(--color-ink);display:block;}
+.cred .yr{font-family:var(--font-mono);font-size:.72rem;color:var(--color-stone);display:block;margin-bottom:var(--space-1);}
+
+/* ---------- FULL-BLEED PROJECT HERO ---------- */
+.phero{position:relative;min-height:82vh;display:flex;align-items:flex-end;overflow:hidden;}
+.phero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;}
+.phero::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(20,20,18,.35) 0%,rgba(20,20,18,.05) 35%,rgba(20,20,18,.72) 100%);}
+.phero__inner{position:relative;z-index:2;width:100%;padding-block:var(--space-6);color:#F5F1E8;}
+.phero__num{font-family:var(--font-mono);font-size:1rem;letter-spacing:.2em;color:var(--color-amber);display:block;margin-bottom:var(--space-2);}
+.phero__title{font-family:var(--font-display);font-weight:300;font-size:clamp(2.8rem,8vw,6.5rem);line-height:.92;letter-spacing:-.02em;margin:0 0 var(--space-3);text-shadow:0 2px 30px rgba(0,0,0,.4);}
+.phero__sub{font-family:var(--font-editorial);font-size:clamp(1.15rem,2vw,1.5rem);margin:0;max-width:38ch;color:#F5F1E8;opacity:.95;}
+.phero__credit{position:absolute;right:clamp(var(--space-4),5vw,var(--space-7));bottom:var(--space-3);z-index:2;font-family:var(--font-mono);font-size:.62rem;letter-spacing:.08em;color:rgba(245,241,232,.7);}
+
+/* ---------- METADATA BLOCK ---------- */
+.metablock{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-4);border-top:var(--border-thin) solid var(--color-ink);border-bottom:var(--border-thin) solid color-mix(in srgb,var(--color-stone) 40%,transparent);padding-block:var(--space-4);}
+.metablock div{display:flex;flex-direction:column;gap:var(--space-1);}
+.metablock dt{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--color-stone);}
+.metablock dd{margin:0;font-size:.95rem;color:var(--color-ink);}
+
+/* ---------- CONTENT ROWS ---------- */
+.row{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6);align-items:center;}
+.row--textfirst{grid-template-columns:1fr 1.1fr;}
+.row--top{align-items:start;}
+.figure img{width:100%;height:auto;border:var(--border-thin) solid color-mix(in srgb,var(--color-stone) 35%,transparent);}
+.cap{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.06em;color:var(--color-stone);margin-top:var(--space-2);}
+.feature{margin-block:var(--space-6);}
+.feature img{width:100%;height:auto;}
+.feature .cap{padding-inline:clamp(var(--space-4),5vw,var(--space-7));}
+
+/* galleries */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-3);}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-3);}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-3);}
+.g2 img,.g3 img,.g4 img{width:100%;height:100%;object-fit:cover;aspect-ratio:1;border:var(--border-thin) solid color-mix(in srgb,var(--color-stone) 30%,transparent);}
+.grid-title{margin-bottom:var(--space-3);}
+
+/* moth reference grid (AI training) */
+.mothgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:var(--space-2);margin-top:var(--space-4);}
+.mothgrid img{width:100%;aspect-ratio:1;object-fit:cover;background:#111;border:var(--border-thin) solid color-mix(in srgb,var(--color-stone) 30%,transparent);}
+.ai-final{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-5);align-items:center;margin-top:var(--space-5);}
+.ai-final img{width:100%;height:auto;}
+
+/* sequence strip */
+.seq{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--space-3);align-items:end;}
+.seq figure{display:flex;flex-direction:column;gap:var(--space-2);}
+.seq img{width:100%;height:auto;border:var(--border-thin) solid color-mix(in srgb,var(--color-stone) 30%,transparent);}
+
+/* legend (temperature) */
+.legend{border:var(--border-thin) solid color-mix(in srgb,var(--color-stone) 45%,transparent);padding:var(--space-4);align-self:start;}
+.legend h3{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--color-stone);font-weight:400;margin:0 0 var(--space-3);}
+.legend__row{display:grid;grid-template-columns:auto 1fr;gap:var(--space-3);align-items:baseline;padding-block:var(--space-2);border-top:var(--border-thin) solid color-mix(in srgb,var(--color-stone) 30%,transparent);}
+.legend__t{font-family:var(--font-mono);font-size:.8rem;color:#F5F1E8;padding:2px var(--space-2);border-radius:var(--radius-small);}
+.legend__d{font-size:.85rem;line-height:1.3;}
+.legend__d b{display:block;font-family:var(--font-display);font-size:1rem;}
+
+/* ---------- TIMELINE (branching) ---------- */
+.timeline{position:relative;margin-top:var(--space-5);padding-left:var(--space-4);}
+.timeline::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--color-moss) 0%,var(--color-moss) 55%,var(--color-amber) 62%,var(--color-stone) 100%);}
+.tnode{position:relative;padding:0 0 var(--space-5) var(--space-5);}
+.tnode::before{content:"";position:absolute;left:-1px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--color-paper);border:2px solid var(--color-moss);}
+.tnode--pub::before{border-color:var(--color-amber);}
+.tnode--stem::before{width:18px;height:18px;left:-3px;background:var(--color-ink);border-color:var(--color-ink);}
+.tnode .tdate{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.08em;color:var(--color-amber);}
+.tnode .tevent{font-family:var(--font-display);font-size:1.15rem;line-height:1.2;margin:2px 0 0;}
+.tnode .tsub{font-size:.85rem;color:var(--color-stone);margin:2px 0 0;}
+.tphase{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--color-stone);margin:var(--space-4) 0 var(--space-3) var(--space-5);position:relative;}
+.tphase--pub{color:var(--color-amber);}
+
+/* ---------- CLOSING ---------- */
+.closing{position:relative;min-height:70vh;display:flex;align-items:center;overflow:hidden;}
+.closing img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(.2);z-index:0;}
+.closing::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,color-mix(in srgb,var(--color-paper) 55%,transparent),color-mix(in srgb,var(--color-paper) 80%,transparent));}
+.closing__inner{position:relative;z-index:2;width:100%;}
+.closing__title{font-family:var(--font-display);font-weight:300;font-size:clamp(3rem,9vw,7rem);line-height:.9;margin:0 0 var(--space-4);letter-spacing:-.02em;}
+.contactgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:var(--space-5);border-top:var(--border-thin) solid var(--color-ink);padding-top:var(--space-4);margin-top:var(--space-5);}
+.contactgrid h3{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--color-stone);font-weight:400;margin:0 0 var(--space-3);}
+.contactgrid ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--space-2);}
+.contactgrid a{color:var(--color-ink);}
+.contactgrid a:hover{color:var(--color-moss);}
+.closing__lede{font-family:var(--font-editorial);font-size:1.35rem;line-height:1.4;max-width:34ch;margin:0;}
+
+/* ---------- FOOTER ---------- */
+.foot{border-top:var(--border-thin) solid var(--color-ink);padding-block:var(--space-4);}
+.foot__base{display:flex;justify-content:space-between;gap:var(--space-3);flex-wrap:wrap;}
+
+/* ---------- REVEAL ---------- */
+.js .reveal{opacity:0;transform:translateY(16px);transition:opacity var(--motion-slow) ease,transform var(--motion-slow) ease;}
+.js .reveal.in{opacity:1;transform:none;}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:960px){
+  .hero__inner{grid-template-columns:1fr;gap:var(--space-5);}
+  .about{grid-template-columns:1fr;gap:var(--space-5);}
+  .about__portrait{max-width:340px;}
+  .row,.row--textfirst,.ai-final{grid-template-columns:1fr;gap:var(--space-4);}
+  .metablock{grid-template-columns:1fr 1fr;}
+  .mothgrid{grid-template-columns:repeat(4,1fr);}
+  .contactgrid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:620px){
+  .nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--color-paper);border-bottom:var(--border-thin) solid var(--color-ink);}
+  .nav.open{display:flex;}
+  .nav a{padding:var(--space-3) clamp(var(--space-4),5vw,var(--space-7));}
+  .nav__toggle{display:inline-flex;background:none;border:var(--border-thin) solid var(--color-ink);color:var(--color-ink);font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;padding:var(--space-2) var(--space-3);border-radius:var(--radius-small);cursor:pointer;}
+  .masthead__inner{position:relative;}
+  .g3,.g4,.seq,.mothgrid{grid-template-columns:1fr 1fr;}
+  .metablock,.contactgrid{grid-template-columns:1fr;}
+  .section{padding-block:var(--space-7);}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *{animation-duration:.001ms!important;transition-duration:.001ms!important;}
+  .js .reveal{opacity:1;transform:none;}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap masthead__inner">
+    <div class="brand">Skye Reich<span>Ecology · Materials · Public Art</span></div>
+    <button class="nav__toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#atlas">Atlas</a>
+      <a href="#burning">Burning World</a>
+      <a href="#garden">Garden</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" aria-label="Introduction">
+  <div class="hero__bg"><img src="images/hero-sky.jpg" alt="A wide black-and-white sky of drifting clouds with birds in flight." /></div>
+  <svg class="hero__growth" id="growth" role="img" aria-label="An animated branching structure of thin lines that grow outward like a root or mycelial network." preserveAspectRatio="xMidYMax slice"></svg>
+  <div class="wrap hero__inner">
+    <div>
+      <div class="hero__eyebrow"><span class="meta meta--amber">Portfolio 2026</span><span class="meta">Interdisciplinary Artist</span></div>
+      <h1 class="hero__title">Skye Reich</h1>
+      <p class="hero__statement">An interdisciplinary artist working at the intersection of ecology, materials, and public interaction, translating ecological processes into immersive experiences.</p>
+    </div>
+    <nav class="hero__index" aria-label="Selected work">
+      <h2>Selected work</h2>
+      <ul class="idxlist">
+        <li><a href="#atlas"><span class="n">01</span><span class="l">Atlas</span><span class="a">&rarr;</span></a></li>
+        <li><a href="#burning"><span class="n">02</span><span class="l">Woman in a Burning World</span><span class="a">&rarr;</span></a></li>
+        <li><a href="#garden"><span class="n">03</span><span class="l">A Community Garden Without Community</span><span class="a">&rarr;</span></a></li>
+      </ul>
+    </nav>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="section" id="about" aria-labelledby="about-h">
+  <div class="wrap">
+    <div class="mark"><span class="meta meta--ink" id="about-h">§ About</span></div>
+    <div class="about reveal">
+      <figure class="about__portrait">
+        <img src="images/portrait.jpg" alt="Portrait of Skye Reich wearing a wide-brimmed hat outdoors." loading="lazy" />
+        <figcaption class="about__cap meta">Skye Reich</figcaption>
+      </figure>
+      <div class="about__body">
+        <p class="lead">I'm Skye, an interdisciplinary artist grounded in science and cultivation, fascinated by the intersection of ecology, public interaction, and materials. My work balances environmental advocacy with hands-on experimentation, translating ecological processes into immersive experiences. Through my projects, I aim to spark curiosity, provoke reflection, and create meaningful encounters between people, materials, and the world around them.</p>
+        <div class="credgrid">
+          <div class="cred">
+            <h3>Education</h3>
+            <p><b>University of Massachusetts, Amherst</b><span class="yr">May 2023</span></p>
+            <p>B.S. Sustainable Community Development — Concentration: City &amp; Society</p>
+            <p>B.S. Natural Resource Conservation — Concentration: Environmental Conservation</p>
+          </div>
+          <div class="cred">
+            <h3>Experience</h3>
+            <p><b>Jen Lewin Studio</b><span class="yr">2016, 2017, 2022 · 2023–2025 · 2026–present</span>Creative Operations Manager; Summer Intern / Apprentice</p>
+            <p><b>Canova Home</b><span class="yr">Sept 2021–present · seasonal</span>Jewelry Designer &amp; Sales Associate</p>
+            <p><b>Magic Wings Butterfly Conservatory</b><span class="yr">Sept 2022–May 2023</span>Educator &amp; Conservation Technician</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 01 · ATLAS ===================== -->
+<section id="atlas" aria-labelledby="atlas-h">
+  <div class="phero">
+    <img src="images/atlas-hero.jpg" alt="A large illuminated moth sculpture with violet and magenta wings suspended in a dark tree canopy." />
+    <div class="wrap phero__inner">
+      <span class="phero__num">01</span>
+      <h2 class="phero__title" id="atlas-h">Atlas</h2>
+      <p class="phero__sub">An interactive sculpture of 24 suspended moths, drawn from endangered species of North America.</p>
+    </div>
+    <span class="phero__credit">Atlas — Courtesy of Jen Lewin Studio · Photo by Nicki Evens</span>
+  </div>
+
+  <div class="section--tight band">
+    <div class="wrap">
+      <dl class="metablock reveal">
+        <div><dt>Role</dt><dd>Project Lead · Researcher · Fabricator</dd></div>
+        <div><dt>Collaboration</dt><dd>Lead artist Jen Lewin · Jen Lewin Studio</dd></div>
+        <div><dt>Materials</dt><dd>Aluminum, UV-printed speaker mesh, LEDs, spring suspension</dd></div>
+        <div><dt>Type</dt><dd>Traveling interactive public installation</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="section--tight">
+    <div class="wrap">
+      <div class="row row--textfirst reveal">
+        <div class="prose reading">
+          <p class="sub">Overview</p>
+          <p class="lead">Atlas is an interactive sculpture of 24 suspended moths, their forms and wing patterns drawn from 24 endangered moth species of North America.</p>
+          <p>As visitors move beneath the suspended bodies, the moths ignite with color and sound, creating a dynamic, immersive encounter. Connecting these endangered species to a global view foregrounds the balance of our ecosystems and the interconnectedness of life on Earth.</p>
+        </div>
+        <figure class="figure">
+          <img src="images/atlas-night.jpg" alt="Two glowing moth sculptures in flight formation against a dark night sky." loading="lazy" />
+          <figcaption class="cap">Suspended moths ignite as visitors pass beneath.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <figure class="feature reveal">
+    <img src="images/atlas-fullbleed.jpg" alt="Three richly lit moth sculptures in red and blue hovering among dark branches." loading="lazy" />
+    <figcaption class="cap">Atlas — Courtesy of Jen Lewin Studio · Photo by Nicki Evens</figcaption>
+  </figure>
+
+  <div class="section--tight">
+    <div class="wrap">
+      <div class="reading prose reveal">
+        <p class="sub">My role</p>
+        <p>I was involved in Atlas from its inception, serving as primary project lead in close collaboration with artist Jen Lewin. I led Lepidoptera research, wing-design prototyping, and the development of AI-trained wing graphics. I managed client communication, coordinated with stakeholders, and directed material research for outdoor durability — printed surfaces, adhesives, and hardware.</p>
+        <p>I worked hands-on in the fabrication and assembly of the wings and bodies, and in installation: managing a team of installers and making on-site adjustments in response to environmental and aesthetic conditions. Throughout, I worked closely with Lewin to oversee the full project lifecycle, ensuring a durable, traveling sculpture capable of repeated installations with minimal refurbishment.</p>
+      </div>
+    </div>
+  </div>
+
+  <figure class="feature reveal">
+    <img src="images/atlas-walkway.jpg" alt="Visitors walking beneath a canopy of illuminated moths strung between live oak branches at dusk." loading="lazy" />
+    <figcaption class="cap">Installed beneath a live-oak canopy — the moths respond to people moving below.</figcaption>
+  </figure>
+
+  <!-- Research -->
+  <div class="section--tight band band--deep reveal" aria-labelledby="atlas-research-h">
+    <div class="wrap">
+      <div class="mark"><span class="meta meta--amber" id="atlas-research-h">Research</span></div>
+      <div class="row row--textfirst">
+        <div class="prose reading">
+          <p>This research explored how endangered Lepidoptera could be communicated through visual and interactive design without text. Species selection was guided by global conservation standards, geographic diversity across North America and Hawai&#699;i, and representation of multiple moth families to highlight ecological roles and pollination diversity.</p>
+          <p>For each species, research briefs covered geographic range, preferred habitats, host plants, conservation status, and ongoing conservation efforts. An accompanying summary on ecological significance — pollination, prey relationships, indicator species, population trends, light pollution, habitat restoration, and community science — was published on the client's website as a public educational resource.</p>
+        </div>
+        <div class="g2">
+          <figure class="figure"><img src="images/research-specimen-01.jpg" alt="A species-selection table listing moth name, size, scientific name, endangered status, and location." loading="lazy" /><figcaption class="cap">Species-selection table</figcaption></figure>
+          <figure class="figure"><img src="images/research-specimen-02.jpg" alt="A sample research brief for Blanchard's Sphinx Moth covering range, habitat, host plants, and conservation status." loading="lazy" /><figcaption class="cap">Sample research brief — Blanchard's Sphinx Moth</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI Training -->
+  <div class="section--tight reveal" aria-labelledby="atlas-ai-h">
+    <div class="wrap">
+      <div class="mark"><span class="meta meta--amber" id="atlas-ai-h">AI Training</span></div>
+      <div class="reading prose">
+        <p>Hundreds of reference images were collected from scientific and insect-documentation sources to train models for the 24 endangered moths represented in Atlas. Because these species are rare, images of preserved specimens were used to study wing pattern and morphology. Generated outputs were then extensively refined in Adobe Suite to ensure both biological accuracy and large-scale visual impact, drawing out the artistic elements needed for the final installation. All results were made public to help increase knowledge of the species.</p>
+      </div>
+      <div class="mothgrid" role="list" aria-label="Moth reference specimens used for research">
+        <img src="images/moth-ref-01.jpg" alt="Reference specimen: moth with yellow eyespots." loading="lazy" />
+        <img src="images/moth-ref-02.jpg" alt="Reference specimen: pair of eyespotted moth wings on a branch." loading="lazy" />
+        <img src="images/moth-ref-03.jpg" alt="Reference specimen: grey moth with orange eyespots." loading="lazy" />
+        <img src="images/moth-ref-04.jpg" alt="Reference specimen: brown moth with dark eyespots." loading="lazy" />
+        <img src="images/moth-ref-05.jpg" alt="Reference specimen: small moth resting on the ground." loading="lazy" />
+        <img src="images/moth-ref-06.jpg" alt="Reference specimen: moth with pink-tinged wings." loading="lazy" />
+        <img src="images/moth-ref-07.jpg" alt="Reference specimen: moth with symmetrical eyespots." loading="lazy" />
+        <img src="images/moth-ref-08.jpg" alt="Reference specimen: broad-winged moth with eyespots." loading="lazy" />
+        <img src="images/moth-ref-09.jpg" alt="Reference specimen: moth with mottled brown wings." loading="lazy" />
+        <img src="images/moth-ref-10.jpg" alt="Reference specimen: moth with orange and grey wings." loading="lazy" />
+        <img src="images/moth-ref-11.jpg" alt="Reference specimen: moth with pale banded wings." loading="lazy" />
+        <img src="images/moth-ref-12.jpg" alt="Reference specimen: moth with dark-centred eyespots." loading="lazy" />
+      </div>
+      <div class="ai-final">
+        <figure class="figure">
+          <img src="images/atlas-final-graphic.jpg" alt="A composed, symmetrical moth graphic with amber and pink eyespots, refined for the installation." loading="lazy" />
+          <figcaption class="cap">Final wing graphic after refinement in Adobe.</figcaption>
+        </figure>
+        <p class="cap">Reference specimens above were used solely for research and public education. Outputs were verified for biological accuracy before fabrication.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fabrication -->
+  <div class="section--tight band reveal" aria-labelledby="atlas-fab-h">
+    <div class="wrap">
+      <div class="mark"><span class="meta meta--amber" id="atlas-fab-h">Fabrication</span></div>
+      <div class="reading prose">
+        <p>Atlas was constructed with hand-bent aluminum frames, UV-printed speaker mesh, adjustable spring-suspension systems, and integrated LEDs. I worked directly with aluminum, epoxy, gesso, UV-reactive pigments, hinges, and modular mounting systems — prioritizing durability, repairability, and adaptability for repeated installations.</p>
+      </div>
+      <div class="g3" style="margin-top:var(--space-4)">
+        <img src="images/fab-sketch.jpg" alt="Pencil sketch of a moth wing laid out on a worktable." loading="lazy" />
+        <img src="images/fab-studio.jpg" alt="Studio worktables with wing frames in progress." loading="lazy" />
+        <img src="images/fab-print-hand.jpg" alt="A hand smoothing UV-printed mesh over a wing form." loading="lazy" />
+        <img src="images/fab-print-detail.jpg" alt="Close detail of a printed wing showing eyespot pattern." loading="lazy" />
+        <img src="images/fab-hardware.jpg" alt="Hands fitting a metal bracket to an aluminum wing frame." loading="lazy" />
+        <img src="images/fab-uv-outline.jpg" alt="A wing outline glowing under UV light in a darkened room." loading="lazy" />
+      </div>
+    </div>
+  </div>
+
+  <figure class="feature reveal">
+    <img src="images/atlas-uv-wing.jpg" alt="Close-up of a moth wing glowing electric blue under ultraviolet light." loading="lazy" />
+    <figcaption class="cap">UV-reactive pigments reveal a second pattern under ultraviolet light.</figcaption>
+  </figure>
+
+  <div class="section--tight reveal">
+    <div class="wrap">
+      <div class="reading prose">
+        <p class="sub">Reflection</p>
+        <p>Atlas was my first experience managing all stages of a large-scale public-art project, deepening my understanding of material systems, ecological research, and public engagement. Designing for impact meant balancing aesthetics, interactivity, and long-term durability. By embedding ecological research into an interactive system, Atlas works as both artwork and educational tool, encouraging reflection on biodiversity loss and human responsibility. I'm grateful to Jen Lewin for the opportunity to collaborate on this work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 02 · WOMAN IN A BURNING WORLD ===================== -->
+<section id="burning" aria-labelledby="burning-h">
+  <div class="phero">
+    <img src="images/burning-hero.jpg" alt="A rendered figure of a woman with a burning globe above her, dissolving into orange flame." />
+    <div class="wrap phero__inner">
+      <span class="phero__num">02</span>
+      <h2 class="phero__title" id="burning-h">Woman in a<br>Burning World</h2>
+      <p class="phero__sub">Thermochromic pigment as a passive, material-based warning system for extreme urban heat.</p>
+    </div>
+    <span class="phero__credit">Concept rendering</span>
+  </div>
+
+  <div class="section--tight band">
+    <div class="wrap">
+      <dl class="metablock reveal">
+        <div><dt>Stage</dt><dd>Research phase · renderings 2026 · mural planned 2027</dd></div>
+        <div><dt>Materials</dt><dd>Thermochromic pigment, UV resin, paint</dd></div>
+        <div><dt>Partners</dt><dd>ECHOGLOWS · iSuoChem · UMass Amherst</dd></div>
+        <div><dt>Origin</dt><dd>Material Experiments course, UMass Amherst</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="section--tight">
+    <div class="wrap">
+      <div class="reading prose reveal">
+        <p class="sub">Project description</p>
+        <p class="lead">This project investigates thermochromic pigments as a passive, material-based warning system for extreme urban heat, focused on the populations most vulnerable to rising temperatures.</p>
+        <p>Currently in the research phase, with initial renderings completed in 2026, it explores the intersection of environmental warning, aesthetics, and community engagement — aiming to provide an intuitive, accessible signal of when protective action is needed.</p>
+      </div>
+      <div class="seq reveal" style="margin-top:var(--space-5)" aria-label="Four-stage sequence of the figure activating from grey to full colour">
+        <figure><img src="images/burning-seq-01.jpg" alt="Sequence frame 1: figure rendered in grey, inactive." loading="lazy" /><figcaption class="cap">Below threshold</figcaption></figure>
+        <figure><img src="images/burning-seq-02.jpg" alt="Sequence frame 2: colour beginning to appear." loading="lazy" /><figcaption class="cap">Warming</figcaption></figure>
+        <figure><img src="images/burning-seq-03.jpg" alt="Sequence frame 3: orange spreading through the figure." loading="lazy" /><figcaption class="cap">Approaching extreme</figcaption></figure>
+        <figure><img src="images/burning-seq-04.jpg" alt="Sequence frame 4: figure fully activated in fire tones." loading="lazy" /><figcaption class="cap">Extreme heat</figcaption></figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- Inspirations -->
+  <div class="section--tight band band--deep reveal" aria-labelledby="burning-insp-h">
+    <div class="wrap">
+      <div class="mark"><span class="meta meta--amber" id="burning-insp-h">Inspirations</span></div>
+      <div class="g3">
+        <figure class="figure"><img src="images/burning-insp-painting.jpg" alt="Painting of a luminous figure between blue and fire, by Zohaib Ahmed." loading="lazy" /><figcaption class="cap">Fire painting — Zohaib Ahmed</figcaption></figure>
+        <figure class="figure"><img src="images/burning-insp-wildfire.jpg" alt="A wildfire burning along a dark ridge." loading="lazy" /><figcaption class="cap">Marshall Fire, Colorado, Dec 2021</figcaption></figure>
+        <figure class="figure"><img src="images/burning-insp-nevercrew.jpg" alt="Thermochromic whale mural by NEVERCREW showing hidden skeletal imagery." loading="lazy" /><figcaption class="cap">Thermochromic mural — NEVERCREW</figcaption></figure>
+        <figure class="figure"><img src="images/burning-insp-sketch.jpg" alt="First sketch: winged figure annotated with a column of temperatures." loading="lazy" /><figcaption class="cap">First drawing attempt</figcaption></figure>
+        <figure class="figure"><img src="images/burning-insp-burningman.jpg" alt="A figure of flame atop a burning pavilion at night." loading="lazy" /><figcaption class="cap">The Other, Burning Man pavilion 2024 — Jen Lewin</figcaption></figure>
+        <figure class="figure"><img src="images/burning-insp-banksy.jpg" alt="Stencil mural of a figure handing a burning Earth to a child." loading="lazy" /><figcaption class="cap">Banksy — Earth on Fire</figcaption></figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- Material testing -->
+  <div class="section--tight reveal" aria-labelledby="burning-test-h">
+    <div class="wrap">
+      <div class="mark"><span class="meta meta--amber" id="burning-test-h">Material Testing</span></div>
+      <div class="row row--textfirst">
+        <div class="prose reading">
+          <p>All experiments used ECHOGLOWS thermochromic pigments (31 &deg;C) incorporated into UV-resin and paint formulations. Six UV-resin shapes were exposed for three minutes in direct sunlight. Painted stars on concrete demonstrated 31 &deg;C activation across the morning.</p>
+          <p>Early layered tests with pen and thermochromic resin paint revealed that dual-image effects require alternating pigments — so that as one layer turns colorless, the other activates — or an underlying image matched to the top layer, so the top image remains visible at all times.</p>
+        </div>
+        <div class="g2">
+          <figure class="figure"><img src="images/burning-resin-01.jpg" alt="UV-resin test shapes on concrete: star, squares, and beads in colour." loading="lazy" /></figure>
+          <figure class="figure"><img src="images/burning-resin-02.jpg" alt="The same UV-resin shapes after sun exposure, partly faded." loading="lazy" /></figure>
+        </div>
+      </div>
+      <div class="grid-title" style="margin-top:var(--space-5)"><span class="meta">Painted star — 31 &deg;C activation through the morning</span></div>
+      <div class="g3">
+        <figure><img src="images/burning-test-0700.jpg" alt="A painted star on concrete, deep purple at 07:00." loading="lazy" /><figcaption class="cap">07:00 — active</figcaption></figure>
+        <figure><img src="images/burning-test-0900.jpg" alt="The same star faded to pale pink at 09:00." loading="lazy" /><figcaption class="cap">09:00 — fading</figcaption></figure>
+        <figure><img src="images/burning-test-1200.jpg" alt="The star nearly colorless on warm concrete at 12:00." loading="lazy" /><figcaption class="cap">12:00 — colorless</figcaption></figure>
+      </div>
+      <div class="g2" style="margin-top:var(--space-4)">
+        <figure class="figure"><img src="images/burning-test-city-01.jpg" alt="Watercolour city study with thermochromic layers, cool tones." loading="lazy" /><figcaption class="cap">Layered city study — before activation</figcaption></figure>
+        <figure class="figure"><img src="images/burning-test-city-02.jpg" alt="The same city study with the underlying layer revealed." loading="lazy" /><figcaption class="cap">Layered city study — after activation</figcaption></figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- Concept rendering + legend -->
+  <div class="section--tight band reveal" aria-labelledby="burning-render-h">
+    <div class="wrap">
+      <div class="mark"><span class="meta meta--amber" id="burning-render-h">Concept Rendering</span></div>
+      <div class="row">
+        <div class="g4">
+          <img src="images/burning-render-01.jpg" alt="Wall render 1: mural mostly colorless." loading="lazy" />
+          <img src="images/burning-render-02.jpg" alt="Wall render 2: globe and figure beginning to show colour." loading="lazy" />
+          <img src="images/burning-render-03.jpg" alt="Wall render 3: more colour spreading down the figure." loading="lazy" />
+          <img src="images/burning-render-04.jpg" alt="Wall render 4: mural fully activated in fire tones." loading="lazy" />
+        </div>
+        <div class="legend" aria-label="Temperature legend">
+          <h3>Legend — what the wall shows</h3>
+          <div class="legend__row"><span class="legend__t" style="background:#5A2A1E">45&deg;C</span><span class="legend__d"><b>Extreme</b>Seek shelter</span></div>
+          <div class="legend__row"><span class="legend__t" style="background:#C05A2A">37&deg;C</span><span class="legend__d"><b>Approaching extreme</b>Take precautions</span></div>
+          <div class="legend__row"><span class="legend__t" style="background:#D9B37A;color:#232321">26&deg;C</span><span class="legend__d"><b>Approaching hot</b>Stay aware</span></div>
+        </div>
+      </div>
+      <figcaption class="cap" style="margin-top:var(--space-3)">Concept rendering on a wall using colorless-to-color pigment: as ambient temperature rises, the mural reveals a warning.</figcaption>
+    </div>
+  </div>
+
+  <div class="section--tight reveal">
+    <div class="wrap">
+      <div class="reading prose">
+        <p class="sub">Ongoing testing</p>
+        <p>The current phase focuses on identifying thermochromic pigments that respond at target temperatures for urban heat warnings. Working with iSuoChem, I'm exploring pigments that shift from colorless to color at 35 &deg;C and 45 &deg;C, alongside black-to-colorless options with painted layers underneath exposed at different temperatures. Design refinement continues, balancing material behavior, visibility, and aesthetic impact. The project originated in the Material Experiments course at UMass Amherst and has developed gradually over the years. A mural sample, roughly 10 ft tall, is planned for painting in 2027.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 03 · COMMUNITY GARDEN ===================== -->
+<section id="garden" aria-labelledby="garden-h">
+  <div class="phero">
+    <img src="images/garden-hero.jpg" alt="A planter box built from reclaimed wood overflowing with tomato plants against a concrete wall." />
+    <div class="wrap phero__inner">
+      <span class="phero__num">03</span>
+      <h2 class="phero__title" id="garden-h">A Community Garden<br>Without Community</h2>
+      <p class="phero__sub">A garden grown to abundance under private care, then released into public space.</p>
+    </div>
+    <span class="phero__credit">Photo by Jenni Pietromonaco</span>
+  </div>
+
+  <div class="section--tight band">
+    <div class="wrap">
+      <dl class="metablock reveal">
+        <div><dt>Location</dt><dd>Bushwick, Brooklyn, New York</dd></div>
+        <div><dt>Duration</dt><dd>April – October 2024</dd></div>
+        <div><dt>Materials</dt><dd>Reclaimed wood, found pallet, soil, native &amp; edible plants</dd></div>
+        <div><dt>Study</dt><dd>Private stewardship &rarr; public site</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="section--tight">
+    <div class="wrap">
+      <div class="row row--textfirst reveal">
+        <div class="prose reading">
+          <p class="sub">Overview</p>
+          <p class="lead">This project examined the transition of a garden cultivated under private stewardship into a public urban environment.</p>
+          <p>Established in an industrial area of Bushwick, the garden was grown to abundance over four months before being relocated to a public street site — where its care, and its future, became everyone's and no one's.</p>
+        </div>
+        <figure class="figure">
+          <img src="images/garden-lot.jpg" alt="The planter in a rain-wet industrial lot with graffiti on the far wall." loading="lazy" />
+          <figcaption class="cap">The garden in its industrial Bushwick lot.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeline -->
+  <div class="section--tight band band--deep reveal" aria-labelledby="garden-timeline-h">
+    <div class="wrap">
+      <div class="mark"><span class="meta meta--amber" id="garden-timeline-h">Timeline</span></div>
+      <div class="row row--textfirst row--top">
+        <div class="prose reading">
+          <p>Built from reclaimed wood and a found pallet, the garden was planted in April 2024 using pre-seeded starter plants and direct sowing. By mid-June, strawberries, peas, and tomatoes were producing, with carrots and beets emerging. By mid-July it reached abundance — tomatoes, beans, strawberries, root vegetables, basil, thyme, marigolds, and native flowers thriving.</p>
+          <p>Maintained in a private setting, the garden was sustained through daily watering, observation, and adaptation, prioritizing soil health, companion planting, and the continuous labor that supports collective growth over time. After it moved to a public street, that steady care thinned — and the record below traces what followed.</p>
+        </div>
+        <div>
+          <p class="tphase">Private stewardship</p>
+          <ol class="timeline" style="list-style:none;padding-left:var(--space-4)">
+            <li class="tnode tnode--stem"><span class="tdate">04 / 14 / 2024</span><p class="tevent">Garden built &amp; planted</p><p class="tsub">Reclaimed wood, found pallet, mixed sowing</p></li>
+            <li class="tnode"><p class="tevent">Flowering started</p></li>
+            <li class="tnode"><p class="tevent">Fruiting started</p><p class="tsub">Tomatoes, strawberries, peas</p></li>
+            <li class="tnode"><span class="tdate">07 / 09 / 2024</span><p class="tevent">Abundance</p><p class="tsub">Beans, roots, herbs, marigolds, native flowers</p></li>
+          </ol>
+          <p class="tphase tphase--pub">Public site</p>
+          <ol class="timeline" style="list-style:none;padding-left:var(--space-4)">
+            <li class="tnode tnode--stem tnode--pub"><span class="tdate">09 / 05 / 2024</span><p class="tevent">Moved to public space</p></li>
+            <li class="tnode tnode--pub"><p class="tevent">Tomatoes picked by community</p><p class="tsub">Some neighbors shared in the harvest</p></li>
+            <li class="tnode tnode--pub"><p class="tevent">Strawberry &amp; lavender stolen</p></li>
+            <li class="tnode tnode--pub"><p class="tevent">All tomatoes picked — ripe and not</p></li>
+            <li class="tnode tnode--pub"><p class="tevent">Daily trash removal begins</p></li>
+            <li class="tnode tnode--pub"><p class="tevent">Metal trellises stolen · graffiti on planters</p></li>
+            <li class="tnode tnode--pub"><span class="tdate">10 / 15 / 2024</span><p class="tevent">Plants pulled from the bed</p></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Growth gallery -->
+  <div class="section--tight reveal" aria-labelledby="garden-growth-h">
+    <div class="wrap">
+      <div class="mark"><span class="meta meta--amber" id="garden-growth-h">Growth</span></div>
+      <div class="g4">
+        <figure><img src="images/garden-planted.jpg" alt="Freshly planted bed with dark soil and small seedlings." loading="lazy" /><figcaption class="cap">Planted · 05/14/2024</figcaption></figure>
+        <figure><img src="images/garden-fruiting.jpg" alt="Bed filling in with green tomato plants and basil." loading="lazy" /><figcaption class="cap">Fruiting started</figcaption></figure>
+        <figure><img src="images/garden-tomatoes.jpg" alt="Clusters of ripening red and yellow cherry tomatoes." loading="lazy" /><figcaption class="cap">Abundant fruiting · 08/25/2024</figcaption></figure>
+        <figure><img src="images/garden-harvest.jpg" alt="Hands holding a shirt full of harvested cherry tomatoes on a street." loading="lazy" /><figcaption class="cap">Moved to public space · 09/05/2024</figcaption></figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- Urban site activation -->
+  <div class="section--tight band reveal" aria-labelledby="garden-urban-h">
+    <div class="wrap">
+      <div class="mark"><span class="meta meta--amber" id="garden-urban-h">Urban Site Activation</span></div>
+      <div class="row">
+        <div class="g2">
+          <figure class="figure"><img src="images/garden-beet-trash.jpg" alt="A hand holding a pulled beet above soil scattered with cans and litter." loading="lazy" /></figure>
+          <figure class="figure"><img src="images/garden-trash-planter.jpg" alt="The planter on the street with plastic bottles and trash among the plants." loading="lazy" /></figure>
+        </div>
+        <div class="prose reading">
+          <p>When relocated to a public street, the garden was exposed to unregulated human interaction and environmental pressure. Early observations included premature harvesting of fruit and vegetables, removal of potted plants, and daily deposition of trash. Structural elements, including trellises, were taken, and soil and planter integrity were gradually compromised.</p>
+          <p>Some community members engaged positively — particularly families with children, who were inspired to plant neighboring tree beds, and local residents who shared in harvesting.</p>
+          <p>This phase highlights the fragility of care-based systems when responsibility is distributed: ecological abundance depends not only on access, but on sustained stewardship and the social infrastructure that supports it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT / CLOSING ===================== -->
+<section class="closing" id="contact" aria-labelledby="contact-h">
+  <img src="images/closing-sky.jpg" alt="A soft grey sky of layered clouds." />
+  <div class="wrap closing__inner">
+    <h2 class="closing__title" id="contact-h">Thank you</h2>
+    <p class="closing__lede">For research collaborations, commissions, installations, and public-art projects.</p>
+    <div class="contactgrid">
+      <div>
+        <h3>Skye Reich</h3>
+        <p class="meta">Interdisciplinary artist — ecology, materials, and public interaction.</p>
+      </div>
+      <div>
+        <h3>Work</h3>
+        <ul>
+          <li><a href="#atlas">Atlas</a></li>
+          <li><a href="#burning">Woman in a Burning World</a></li>
+          <li><a href="#garden">A Community Garden Without Community</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="mailto:skyelreich@gmail.com">skyelreich@gmail.com</a></li>
+          <li><a href="#">Download CV (PDF)</a></li>
+          <li><a href="#">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__base">
+    <span class="meta">Skye Reich — Portfolio 2026</span>
+    <span class="meta">&copy; 2026 Skye Reich · Project imagery courtesy of Jen Lewin Studio &amp; noted photographers</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  document.documentElement.classList.add("js");
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  var toggle = document.querySelector(".nav__toggle");
+  var nav = document.getElementById("nav");
+  if(toggle){
+    toggle.addEventListener("click", function(){
+      var open = nav.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", open ? "true":"false");
+    });
+    nav.addEventListener("click", function(e){ if(e.target.tagName==="A"){ nav.classList.remove("open"); toggle.setAttribute("aria-expanded","false"); }});
+  }
+
+  if("IntersectionObserver" in window){
+    var io = new IntersectionObserver(function(en){ en.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add("in"); io.unobserve(x.target);}});},{threshold:0.1});
+    document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+  } else { document.querySelectorAll(".reveal").forEach(function(el){ el.classList.add("in"); }); }
+
+  // Hero dendritic growth (same signature as the archive concept)
+  var SVGNS="http://www.w3.org/2000/svg";
+  var svg=document.getElementById("growth");
+  if(svg){
+    var W=1000,H=620; svg.setAttribute("viewBox","0 0 "+W+" "+H);
+    var order=[];
+    function branch(x,y,a,l,d,spread){
+      if(d<=0||l<7) return;
+      var nx=x+Math.cos(a)*l, ny=y+Math.sin(a)*l;
+      order.push({x1:x,y1:y,x2:nx,y2:ny,d:d,len:l});
+      var ch = d>5?2:(Math.random()<0.72?2:3);
+      for(var i=0;i<ch;i++){ var t=ch===1?0:(i/(ch-1)-0.5); branch(nx,ny,a+t*spread+(Math.random()-0.5)*0.28,l*(0.7+Math.random()*0.12),d-1,spread*0.86); }
+    }
+    [0.16,0.5,0.84].forEach(function(fx){ branch(W*fx,H+6,-Math.PI/2+(Math.random()-0.5)*0.2,86+Math.random()*24,8,1.05); });
+    var maxD=8, total=0; order.forEach(function(s){ total+=s.len; }); var drawn=0;
+    order.forEach(function(s){
+      var p=document.createElementNS(SVGNS,"line");
+      p.setAttribute("x1",s.x1.toFixed(1));p.setAttribute("y1",s.y1.toFixed(1));p.setAttribute("x2",s.x2.toFixed(1));p.setAttribute("y2",s.y2.toFixed(1));
+      var f=s.d/maxD, stroke=f>0.72?"#232321":(f>0.4?"#5C6B58":"#8E8A82");
+      p.setAttribute("stroke",stroke);p.setAttribute("stroke-width",(0.5+f*1.8).toFixed(2));p.setAttribute("stroke-linecap","round");p.setAttribute("opacity",(0.22+f*0.3).toFixed(2));
+      if(!reduce){var len=Math.hypot(s.x2-s.x1,s.y2-s.y1);p.style.strokeDasharray=len;p.style.strokeDashoffset=len;var delay=(drawn/total)*2600;p.style.transition="stroke-dashoffset 700ms cubic-bezier(.4,0,.2,1) "+delay.toFixed(0)+"ms";drawn+=s.len;requestAnimationFrame(function(){requestAnimationFrame(function(){p.style.strokeDashoffset="0";});});}
+      svg.appendChild(p);
+    });
+    var tips=order.filter(function(s){return s.d<=2;});
+    for(var k=0;k<Math.min(tips.length,8);k++){var t=tips[Math.floor(Math.random()*tips.length)];var c=document.createElementNS(SVGNS,"circle");c.setAttribute("cx",t.x2.toFixed(1));c.setAttribute("cy",t.y2.toFixed(1));c.setAttribute("r",1.8);c.setAttribute("fill","#C18A4A");c.setAttribute("opacity",reduce?0.8:0);svg.appendChild(c);if(!reduce){(function(el,i){el.style.transition="opacity 500ms ease "+(2400+i*90)+"ms";requestAnimationFrame(function(){requestAnimationFrame(function(){el.style.opacity=0.8;});});})(c,k);}}
+  }
+})();
+</script>
+</body>
+</html>
